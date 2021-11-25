@@ -6,30 +6,38 @@
 }
 
 .phone {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.screen,
+.button--exit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen {
+    flex-direction: column;
+
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    
     width: 356px;
-    height: 90vh;
+    height: 90%;
     border: 1px solid black;
-}
+    background: #fff;
 
-.screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    width: inherit; 
-    height: inherit;
     padding: 10px;
     text-align: center;
 }
 
-.screen-title--menu {
+/* Main Menu */
+
+.screen-title {
     font-weight: 900;
     font-size: 2.4rem;
 }
@@ -56,8 +64,55 @@
     border: 1px solid #111;
     border-radius: 3px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+    cursor: pointer;
+}
+
+.button:active {
+    box-shadow: 0 6px 4px rgba(0, 0, 0, .25);
 }
 
 .button--learn {
     background-color: rgb(253, 67, 67);
+}
+
+.button--exit {
+    font-size: 1.2rem;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+}
+
+/* Choices Menu */
+
+.screen-choices {
+    left: 76%;
+    opacity: 0;
+    transition: all .2s ease-in;
+}
+
+.buttons-choices {
+    margin-top: 60px;
+}
+
+.button--choices {
+    width: 300px;
+    height: 150px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.button__information {
+    padding-left: 20px;
+    padding-top: 40px;
+}
+
+.button__information h3 {
+    font-weight: 900;
+}
+
+.button__information p {
+    font-size: .9rem;
+    font-weight: 500;
 }
