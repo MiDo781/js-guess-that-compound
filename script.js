@@ -1,6 +1,14 @@
+// Learn Section
+const learnExitButton = document.querySelector(".button--exit--learn");
+
 const startButton = document.querySelector(".button--start");
 const exitButton = document.querySelector(".button--exit");
 const choiceScreen = document.querySelector(".screen-choices");
+
+// Learn Section
+learnExitButton.addEventListener("click", () => {
+    window.open("/", "_self");
+});
 
 startButton.addEventListener("click", () => {
     showScreen(choiceScreen)

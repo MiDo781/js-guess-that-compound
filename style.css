@@ -37,6 +37,13 @@
     text-align: center;
 }
 
+.screen * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
 /* Main Menu */
 
 .screen-title {
@@ -76,6 +83,11 @@
 
 .button--learn {
     background-color: rgb(253, 67, 67);
+}
+
+.button a {
+    text-decoration: none;
+    color: #111;
 }
 
 .button--exit {
@@ -118,4 +130,47 @@
 .button__information p {
     font-size: .9rem;
     font-weight: 500;
+}
+
+/* Learn Section */
+.button--exit--learn {
+    background: rgb(253, 67, 67);
+}
+
+.screen-title--learn {
+    margin-top: 50px;
+    text-align: left;
+    padding-left: 10px;
+    line-height: 2.5rem;
+}
+
+.highlight--learn {
+    color: rgb(253, 67, 67);
+}
+
+.topics {
+    padding: 10px 10px;
+    margin: 20px 0;
+    overflow-y: scroll;
+}
+
+.topics::-webkit-scrollbar {
+    display: none;
+}
+
+.topic {
+    width: 100%;
+    max-height: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: rgb(253, 67, 67);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.topic__content {
+    line-height: 1.2rem;
 }
