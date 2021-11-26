@@ -37,13 +37,6 @@
     text-align: center;
 }
 
-.screen * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
-    -o-transition: none !important;
-}
-
 /* Main Menu */
 
 .screen-title {
