@@ -1,13 +1,24 @@
-// Learn Section
-const learnExitButton = document.querySelector(".button--exit--learn");
+// Screens
+const choiceScreen = document.querySelector(".screen--choices");
+const quizScreen = document.querySelector(".screen--quiz");
+const ionicScreen = document.querySelector(".screen--ionic");
 
-// Main Menu
-const startButton = document.querySelector(".button--start");
-const learnButton = document.querySelector(".button--learn");
-
-// Choices
-const choiceExitButton = document.querySelector(".button--exit");
-const choiceScreen = document.querySelector(".screen-choices");
+// Timer
+let timerText = document.querySelector(".timer");
+let timer = 15;
+let counter = setInterval(() => {
+    if (timer == 0) {
+        timerText.innerHTML = timer--;  
+        clearInterval(counter);
+    } else {
+        if (timer <= 10) {
+            timerText.innerHTML = timer--;
+            timerText.style.color = "red";
+        } else {
+            timerText.innerHTML = timer--;  
+        }
+    }
+}, 1000);
 
 function showScreen(screen) {
     screen.style.opacity = "1";

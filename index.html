@@ -16,7 +16,7 @@
             <p class="screen-subtitle">
                 Can you guess all the compounds?
             </p>
-            <div class="screen-buttons">
+            <div class="buttons">
                 <button class="button button--start" onclick="showScreen(choiceScreen)">Start Now</button>
                 <button class="button button--learn">
                     <a href="/learn.html">Learn</a>
@@ -25,13 +25,13 @@
         </div>
 
         <!-- Selec Yout Compounds -->
-        <div class="screen screen-choices">
+        <div class="screen screen--choices">
             <div class="button button--exit" onclick="hideScreen(choiceScreen)"><-</div>
             <h1 class="screen-title">
                 Select your COMPOUNDS
             </h1>
-            <div class="buttons-choices">
-                <button class="button button--choices">
+            <div class="buttons--choices">
+                <button class="button button--choices button--ionic" onclick="showScreen(ionicScreen)">
                     <div class="button__information">
                         <h3>
                             Ionic Compounds
@@ -41,7 +41,7 @@
                         </p>
                     </div>
                 </button>
-                <button class="button button--choices">
+                <button class="button button--choices button--covalent">
                     <div class="button__information">
                         <h3>
                             Covalent Compounds
@@ -50,6 +50,29 @@
                             Total items: 100
                         </p>
                     </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Ionic Compounds -->
+        <div class="screen screen--quiz screen--ionic">
+            <div class="button button--exit" onclick="hideScreen(ionicScreen)"><-</div>
+
+            <p class="timer">
+                test
+            </p>
+            <h1 class="compound">
+                2ClH20
+            </h1>
+            <div class="buttons">
+                <button class="button">
+                    Ionic           
+                </button><button class="button">
+                    Ionic
+                </button><button class="button">
+                    Ionic
+                </button><button class="button">
+                    Ionic
                 </button>
             </div>
         </div>
