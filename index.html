@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="phone">
-        <div class="screen screen-menu">
+        <div class="screen screen--menu">
             <h1 class="screen-title screen-title--menu">
                 Guess That Compound!
             </h1>     
@@ -26,7 +26,7 @@
 
         <!-- Selec Yout Compounds -->
         <div class="screen screen--choices">
-            <div class="button button--exit" onclick="hideScreen(choiceScreen)"><-</div>
+            <div class="button button--exit"><-</div>
             <h1 class="screen-title">
                 Select your COMPOUNDS
             </h1>
@@ -59,25 +59,26 @@
             <div class="button button--exit" onclick="hideScreen(ionicScreen)"><-</div>
 
             <p class="timer">
-                test
+                15
             </p>
             <h1 class="compound">
                 2ClH20
             </h1>
             <div class="buttons">
-                <button class="button">
+                <button class="button button--choice">
                     Ionic           
-                </button><button class="button">
+                </button><button class="button button--choice">
                     Ionic
-                </button><button class="button">
+                </button><button class="button button--choice">
                     Ionic
-                </button><button class="button">
+                </button><button class="button button--choice">
                     Ionic
                 </button>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="text/javascript" src="ionic.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
