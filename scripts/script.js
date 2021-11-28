@@ -5,20 +5,37 @@ const ionicScreen = document.querySelector(".screen--ionic");
 // Pop-ups
 const popUp = document.querySelector(".screen--pop-up");
 // Buttons
-const ionicButton = document.querySelector(".button--ionic");
+const choiceButton = document.getElementsByClassName("button--choices");
+const quizButtonExit = document.querySelector(".button--exit--quiz");
+console.log(quizButtonExit);
 
 let quizNumber = 1;
 
-ionicButton.addEventListener("click", () => {
-    showScreen(ionicScreen);
+// Timer
+let counter;
+let timer = 14;
+let timerText = document.querySelector(".timer");
 
-    let timer = 14;
-    let timerText = document.querySelector(".timer");
+// Add onclick function to choice buttons
+for (let i = 0; i < choiceButton.length; i++) {
+    choiceButton[i].addEventListener("click", () => {
+        showQuiz();
+    });
+}
+
+// TODO 
+// Fix quizButton returning null
+
+function showQuiz() {
+    showScreen(quizScreen);
+
     let compound = document.querySelector(".compound");
-    let choices = document.getElementsByClassName("button--choice");
+    let choices = document.getElementsByClassName("button--choice")
 
+    // Set the compound text equal to the formatted compound
     compound.innerHTML = formatCompound(ionic, quizNumber);
 
+    // Display Choices
     for (let i = 0; i < choices.length; i++) {
         choices[i].innerHTML = ionic[quizNumber].choices[i];
         choices[i].addEventListener("click", () => {
@@ -26,8 +43,17 @@ ionicButton.addEventListener("click", () => {
         });
     }
 
-    // Code for counter
-    let counter = setInterval(() => {
+    startTimer();
+}
+
+quizButtonExit.addEventListener("click", () => {
+    stopTimer();
+    hideScreen(quizScreen)
+});
+
+function startTimer() {
+    timer = 14;
+    counter = setInterval(() => {
         if (timer == 0) {
             timerText.innerHTML = timer--;  
             clearInterval(counter);
@@ -41,7 +67,13 @@ ionicButton.addEventListener("click", () => {
             }
         }
     }, 1000);
-});
+}
+
+function stopTimer() {
+    clearInterval(counter);
+    timerText.innerHTML = 15; 
+    timer = 14;
+}
 
 function formatCompound(type, quizNumber) {
     let finalCompound = "";
