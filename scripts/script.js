@@ -7,9 +7,8 @@ const popUp = document.querySelector(".screen--pop-up");
 // Buttons
 const choiceButton = document.getElementsByClassName("button--choices");
 const quizButtonExit = document.querySelector(".button--exit--quiz");
-console.log(quizButtonExit);
 
-let quizNumber = 1;
+let quizNumber = 2;
 
 // Timer
 let counter;
@@ -19,31 +18,51 @@ let timerText = document.querySelector(".timer");
 // Add onclick function to choice buttons
 for (let i = 0; i < choiceButton.length; i++) {
     choiceButton[i].addEventListener("click", () => {
-        showQuiz();
+        if (choiceButton[i].getAttribute("data-quiz") == "ionic") {
+            showQuiz(ionic)
+        } else {
+            showQuiz(covalent)
+        }
     });
 }
 
-// TODO 
-// Fix quizButton returning null
-
-function showQuiz() {
+function showQuiz(type) {
     showScreen(quizScreen);
 
     let compound = document.querySelector(".compound");
     let choices = document.getElementsByClassName("button--choice")
 
     // Set the compound text equal to the formatted compound
-    compound.innerHTML = formatCompound(ionic, quizNumber);
+    compound.innerHTML = formatCompound(type, quizNumber);
 
     // Display Choices
     for (let i = 0; i < choices.length; i++) {
-        choices[i].innerHTML = ionic[quizNumber].choices[i];
+        choices[i].innerHTML = type[quizNumber].choices[i];
         choices[i].addEventListener("click", () => {
             console.log("I am " + choices[i].innerHTML);
         });
     }
 
     startTimer();
+}
+
+function formatCompound(name, quizNumber) {
+    let finalCompound = "";
+    let initialCompound = name[quizNumber].compound.split("");
+    let subscripts = name[quizNumber].subscripts;
+    let subscriptIndex = 0;
+
+    for (let i = 0; i < initialCompound.length; i++) {
+        if (initialCompound[i].includes(subscripts[subscriptIndex])) {
+            initialCompound[i] = "<sub>" + subscripts[subscriptIndex] + "</sub>";
+            finalCompound += initialCompound[i];
+            subscriptIndex += 1;    
+        } else {
+            finalCompound += initialCompound[i];
+        }
+    }
+
+    return finalCompound;
 }
 
 quizButtonExit.addEventListener("click", () => {
@@ -76,28 +95,10 @@ function stopTimer() {
     timer = 14;
 }
 
-function formatCompound(type, quizNumber) {
-    let finalCompound = "";
-    let initialCompound = type[quizNumber].compound.split("");
-    let subscripts = type[quizNumber].subscripts;
-    let subscriptIndex = 0;
-
-    for (let i = 0; i < initialCompound.length; i++) {
-        if (initialCompound[i].includes(subscripts[subscriptIndex])) {
-            initialCompound[i] = "<sub>" + subscripts[subscriptIndex] + "</sub>";
-            finalCompound += initialCompound[i];
-            subscriptIndex += 1;    
-        } else {
-            finalCompound += initialCompound[i];
-        }
-    }
-
-    return finalCompound;
-}
-
 function showScreen(screen) {
     screen.style.opacity = "1";
     screen.style.left = "50%";
+    
 }
 
 function hideScreen(screen) {

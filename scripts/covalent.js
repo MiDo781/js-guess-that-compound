@@ -1,12 +1,12 @@
-let ionic = [
+let covalent = [
     {
-        compound: "H20",
-        answer: "Water",
+        compound: "Covalent",
+        answer: "Covalent",
         choices: [
-            "Water",
-            "Chlorine",
-            "Dioxide",
-            "Chromium",
+            "Covalent",
+            "Covalent",
+            "Covalent",
+            "Covalent",
         ],
         info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae reprehenderit, magni esse quaerat doloribus ad ex. Dignissimos commodi minima voluptatum?",
         get subscripts() {
@@ -17,13 +17,13 @@ let ionic = [
         }
     },
     {
-        compound: "Na2CO3",
-        answer: "Water",
+        compound: "Covalent",
+        answer: "Covalent",
         choices: [
-            "Sodium Hipochlorite",
-            "Sodium Carbonate",
-            "Sodium Bicarbonate",
-            "Sodium Flouride",
+            "Sodium Covalent",
+            "Sodium Covalent",
+            "Sodium Covalent",
+            "Sodium Covalent",
         ],
         info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae reprehenderit, magni esse quaerat doloribus ad ex. Dignissimos commodi minima voluptatum?",
         get subscripts() {
@@ -35,13 +35,13 @@ let ionic = [
         }
     },
     {
-        compound: "NaCl",
-        answer: "Water",
+        compound: "Covalent",
+        answer: "Covalent",
         choices: [
-            "Sodium Chloride",
-            "Sodium and Chlorine",
-            "Sodium Chlorine",
-            "Sodium Calcium",
+            "Covalent Chloride",
+            "Covalent and Chlorine",
+            "Covalent Chlorine",
+            "Covalent Calcium",
         ],
         info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae reprehenderit, magni esse quaerat doloribus ad ex. Dignissimos commodi minima voluptatum?",
         get subscripts() {

@@ -32,20 +32,21 @@
         <!-- Select Your Compounds -->
         <div class="screen screen--choices">
             <div class="button button--exit" onclick="hideScreen(choiceScreen)">
-                <
+                <-
             </div>
             <h1 class="screen-title">
                 Select your COMPOUNDS
             </h1>
             <div class="buttons--choices">
                 <button class="button button--choices button--ionic"
-                        onclick="showScreen(ionicScreen)">
+                        data-quiz="ionic">
                     <div class="button__information">
                         <h3>Ionic Compounds</h3>
                         <p>Total Items: 100</p>
                     </div>
                 </button>
-                <button class="button button--choices button--covalent">
+                <button class="button button--choices button--covalent"
+                        data-quiz="covalent">
                     <div class="button__information">
                         <h3>Covalent Compounds</h3>
                         <p>Total Items: 100</p>
@@ -57,7 +58,7 @@
         <!-- Quiz -->
         <div class="screen screen--quiz screen--ionic">
             <div class="button button--exit button--exit--quiz">
-                <
+                <-
             </div>
             <p class="timer">15</p>
             <h1 class="compound">
@@ -78,6 +79,7 @@
             </div>
         </div>
     </div>
+    <script src="./scripts/covalent.js"></script>
     <script src="./scripts/ionic.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
