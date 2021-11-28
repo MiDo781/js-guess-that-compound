@@ -98,12 +98,13 @@ function stopTimer() {
 function showScreen(screen) {
     screen.style.opacity = "1";
     screen.style.left = "50%";
-    
+    screen.style.zIndex = "1";
 }
 
 function hideScreen(screen) {
     screen.style.opacity = "0";
     screen.style.left = "76%";
+    screen.style.zIndex = "-2";
 }
 
 function showPopUp(popup) {

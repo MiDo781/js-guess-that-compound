@@ -11,6 +11,7 @@
     position: relative;
     width: 100vw;
     height: 100vh;
+    border: 5px solid blue;
 }
 
 .screen,
@@ -46,6 +47,7 @@
     left: 76%;
     opacity: 0;
     transition: all .2s ease-in;
+    z-index: -2;
 }
 
 /* Main Menu */
