@@ -72,6 +72,7 @@ function startTimer() {
 function stopTimer() {
     clearInterval(counter);
     timerText.innerHTML = 15; 
+    timerText.style.color = "#111";
     timer = 14;
 }
 
