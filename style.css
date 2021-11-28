@@ -14,19 +14,23 @@
 }
 
 .screen,
-.button--exit {
+.button--exit,
+.pop-up {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.screen {
-    flex-direction: column;
-
+.screen,
+.pop-up {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.screen {
+    flex-direction: column;
     border-radius: 10px;
     width: 356px;
     height: 90%;
@@ -183,4 +187,36 @@
 .screen--quiz {
     left: 76%;
     opacity: 0;
+}
+
+/* Pop-ups */
+.screen--pop-up {
+    opacity: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(2px);
+    transition: all .2s ease-in-out;
+}
+
+.pop-up {
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 15px;
+    width: 230px;
+    height: 230px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.pop-up__title {
+    font-weight: bold;
+}
+
+.pop-up__next {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.pop-up--timeup {
+    background-color: rgb(253, 67, 67);
 }
