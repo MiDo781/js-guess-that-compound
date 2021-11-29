@@ -45,6 +45,17 @@ function setCompound(type) {
     let subscripts = type[number].subscripts;
     let subscriptIndex = 0;
 
+    /*
+        -- Flow --
+        1. For each character in initial compound
+        2. Check if it includes a character from subscripts of index `subcriptIndex`
+        3. If true
+            3.1 Wrap thet current character's value with `<sub></sub>`
+            3.2 Add that current character to the variable `finalComound`
+            3.3 Increment subsciptIndex
+        4. If false
+            4.1 Add that current character to the variable `finalComound`
+    */
     for (let i = 0; i < initialCompound.length; i++) {
         if (initialCompound[i].includes(subscripts[subscriptIndex])) {
             initialCompound[i] = "<sub>" + subscripts[subscriptIndex] + "</sub>";
@@ -59,7 +70,21 @@ function setCompound(type) {
 
 function createOptions(type) {
     for (let i = 0; i < type[number].options.length; i++) {
+        // Set inner HTML of each element to each opitons in the quiz
         optionButtons[i].innerHTML = type[number].options[i];
+
+        // Set and event listener for every button to check for the answer when clicked
+        optionButtons[i].addEventListener("click", () => {
+            checkAnswer(optionButtons[i], type);
+        })
+    }
+}
+
+function checkAnswer(option, type) {
+    if (option.innerHTML == type[number].answer) {
+        console.log(true);
+    } else {
+        console.log(false);
     }
 }
 
