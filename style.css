@@ -5,9 +5,228 @@
     padding: 0;
     font-family: 'Poppins', 'Inter', sans-serif;
     box-sizing: border-box;
+    color: #111;
 }
 
+/* Variables */
+:root {
+    --text-color: rgba(17, 17, 17, 1);
+    --yellow-accent: rgba(252, 226, 5, 1);
+    --red-accent: rgba(253, 67, 67, 1);
+    --popup-bg: rgba(17, 17, 17, .25);
+}
+
+/* Utilities */
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Main Style */
 .phone {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #f3f3f3;
+}
+
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 346px;
+    height: 90%;
+    border: 1px solid black;
+    border-radius: 20px;
+    background: #fff;
+}
+
+.screen__title {
+    line-height: 2.2rem;
+    font-weight: 800;
+    font-size: 2.5rem;
+}
+
+.screen__subtitle {
+    width: 200px;
+    margin: 80px 0;
+}
+
+.button {
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 200px;
+    padding: 7px 0;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.button:last-child {
+    margin-bottom: 0;
+}
+
+.button:active {
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, .4);
+}
+
+.button--yellow {
+    background: var(--yellow-accent);
+}
+
+.button--red {
+    background: var(--red-accent);
+}
+
+/* Select Your Compounds */
+.button--back {
+    width: 35px; 
+    height: 35px;
+    padding-bottom: 10px;
+    font-family: 'Inter';
+    font-weight: 700;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.buttons--select {
+    margin-top: 50px;
+}
+
+.button--choice {
+    width: 285px;
+    height: 150px;
+    padding: 80px 0 0 20px;
+    line-height: 1.2rem;
+    text-align: left;
+}
+
+.button--covalent {
+    padding: 50px 0 0 20px;
+}
+
+.button__title {
+    font-size: 1.5rem;
+}
+
+.button__title--covalent {
+    line-height: 1.5rem;
+}
+
+.button__subtitle {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* Quiz */
+.quiz__timer {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.quiz__compound {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 50px 0;
+}
+
+.button--option {
+    width: 80%;
+}
+
+/* Popup */
+.screen--popup {
+    background: var(--popup-bg);
+    border: 0;
+}
+
+.popup {
+    padding: 15px 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid var(--text-color);
+}
+
+.popup__title {
+    font-weight: 700;
+}
+
+.popup__message {
+    margin: 10px 0 30px 0;
+    font-size: .9rem;
+}
+
+.popup__next {
+    font-weight: 500;
+}
+
+.popup--timeup,
+.popup--wrong {
+    background: var(--red-accent);
+}
+
+.popup--correct {
+    background: var(--yellow-accent);
+}
+
+/* Screens */
+.screen--select,
+.screen--quiz,
+.screen--popup {
+    opacity: 0;
+    z-index: -1;
+    transition: all .2s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .phone {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -47,11 +266,11 @@
     opacity: 0;
     transition: all .2s ease-in;
     z-index: -2;
-}
+} */
 
 /* Main Menu */
 
-.screen-title {
+/* .screen-title {
     font-weight: 900;
     font-size: 2.4rem;
     line-height: 3rem;
@@ -102,11 +321,11 @@
     left: 20px;
     width: 35px;
     height: 35px;
-}
+} */
 
 /* Choices Menu */
 
-.buttons--choices {
+/* .buttons--choices {
     margin-top: 60px;
 }
 
@@ -129,10 +348,10 @@
 .button__information p {
     font-size: .9rem;
     font-weight: 500;
-}
+} */
 
 /* Learn Section */
-.button--exit--learn {
+/* .button--exit--learn {
     background: rgb(253, 67, 67);
 }
 
@@ -172,10 +391,10 @@
 
 .topic__content {
     line-height: 1.2rem;
-}
+} */
 
 /* Main Quiz */
-.timer {
+/* .timer {
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -189,10 +408,10 @@
 .screen--quiz {
     left: 76%;
     opacity: 0;
-}
+} */
 
 /* Pop-ups */
-.screen--pop-up {
+/* .screen--pop-up {
     opacity: 0;
     z-index: -1;
     background-color: rgba(0, 0, 0, .1);
@@ -210,6 +429,10 @@
     border-radius: 5px;
 }
 
+.pop-up--correct {
+    background-color: #fce205;
+}
+
 .pop-up__title {
     font-weight: bold;
 }
@@ -221,4 +444,4 @@
 
 .pop-up--timeup {
     background-color: rgb(253, 67, 67);
-}
+} */

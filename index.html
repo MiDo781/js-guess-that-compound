@@ -5,82 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <title>Guess That Compound</title>
 </head>
 <body>
     <div class="phone">
         <!-- Main Menu -->
-        <div class="screen screen--menu">
-            <h1 class="screen-title screen-title--menu">
+        <div class="screen screen--menu center">
+            <h1 class="screen__title">
                 Guess That Compound!
             </h1>
-            <div class="screen-subtitle">
+            <p class="screen__subtitle">
                 Can you guess all the compounds?
-            </div>
-            <div class="buttons">
-                <button class="button button--start" onclick="showScreen(choiceScreen)">
-                    Start Now
-                </button>
-                <button class="button button--learn">
-                    <a href="/pages/learn.html">
-                        Learn
-                    </a>
-                </button>
+            </p>
+            <div class="buttons buttons--menu center">
+                <button class="button button--yellow button--start">Start Now!</button>
+                <button class="button button--red button--learn">Learn</button>
             </div>
         </div>
 
         <!-- Select Your Compounds -->
-        <div class="screen screen--choices">
-            <div class="button button--exit" onclick="hideScreen(choiceScreen)">
+        <div class="screen screen--select center">
+            <div class="button button--yellow button--back center">
                 <-
             </div>
-            <h1 class="screen-title">
-                Select your COMPOUNDS
+            <h1 class="screen__title">
+                Select Your COMPOUNDS!
             </h1>
-            <div class="buttons--choices">
-                <button class="button button--choices button--ionic"
-                        data-quiz="ionic">
-                    <div class="button__information">
-                        <h3>Ionic Compounds</h3>
-                        <p>Total Items: 100</p>
-                    </div>
-                </button>
-                <button class="button button--choices button--covalent"
-                        data-quiz="covalent">
-                    <div class="button__information">
-                        <h3>Covalent Compounds</h3>
-                        <p>Total Items: 100</p>
-                    </div>
-                </button>
+            <div class="buttons buttons--select center">
+                <div class="button button--yellow button--choice button--ionic">
+                    <p class="button__title">
+                        Ionic Compounds
+                    </p>
+                    <p class="button__subtitle">
+                        Total Items: 100
+                    </p>
+                </div>
+                <div class="button button--yellow button--choice button--covalent">
+                    <p class="button__title button__title--covalent">
+                        Covalent Compounds
+                    </p>
+                    <p class="button__subtitle">
+                        Total Items: 100
+                    </p>
+                </div>
             </div>
         </div>
 
         <!-- Quiz -->
-        <div class="screen screen--quiz screen--ionic">
-            <div class="button button--exit button--exit--quiz">
+        <div class="screen screen--quiz center">
+            <div class="button button--yellow button--back center">
                 <-
             </div>
-            <p class="timer">15</p>
-            <h1 class="compound">
-            </h1>
-            <div class="buttons">
-                <button class="button button--choice"></button>
-                <button class="button button--choice"></button>
-                <button class="button button--choice"></button>
-                <button class="button button--choice"></button>
+            <p class="quiz__timer">15</p>
+            <h1 class="quiz__compound">NaCl</h1>
+            <div class="buttons buttons__quiz">
+                <button class="button button--yellow button--option">Sodium Chloride</button>
+                <button class="button button--yellow button--option">Sodium Chloride</button>
+                <button class="button button--yellow button--option">Sodium Chloride</button>
+                <button class="button button--yellow button--option">Sodium Chloride</button>
             </div>
         </div>
 
-        <div class="screen screen--pop-up">
-            <div class="pop-up pop-up--timeup">
-                <p class="pop-up__title">Time's out!</p>
-                <p class="pop-up__message">Better luck next time!</p>
-                <p class="pop-up__next">Next</p>
+        <!-- Popups -->
+        <!-- Timeup -->
+        <div class="screen screen--popup screen--timeout center">
+            <div class="popup popup--timeup">
+                <p class="popup__title">Bummer!</p>
+                <p class="popup__message">You ran out of time.</p>
+                <p class="popup__next">Next</p>
+            </div>
+        </div>
+
+        <!-- Correct -->
+        <div class="screen screen--popup screen--correct center">
+            <div class="popup popup--correct">
+                <p class="popup__title">Correct!</p>
+                <p class="popup__message">Compoud information here...</p>
+                <p class="popup__next">Next</p>
+            </div>
+        </div>
+
+        <!-- Wrong -->
+        <div class="screen screen--popup screen--wrong center">
+            <div class="popup popup--wrong">
+                <p class="popup__title">Wrong!</p>
+                <p class="popup__message">Better luck next time...</p>
+                <p class="popup__next">Next</p>
             </div>
         </div>
     </div>
-    <script src="./scripts/covalent.js"></script>
-    <script src="./scripts/ionic.js"></script>
-    <script src="./scripts/script.js"></script>
 </body>
 </html>
