@@ -2,7 +2,7 @@ let ionic = [
     {
         compound: "H20",
         answer: "Water",
-        choices: [
+        options: [
             "Water",
             "Chlorine",
             "Dioxide",
@@ -19,7 +19,7 @@ let ionic = [
     {
         compound: "Na2CO3",
         answer: "Water",
-        choices: [
+        options: [
             "Sodium Hipochlorite",
             "Sodium Carbonate",
             "Sodium Bicarbonate",
@@ -37,7 +37,7 @@ let ionic = [
     {
         compound: "NaCl",
         answer: "Water",
-        choices: [
+        options: [
             "Sodium Chloride",
             "Sodium and Chlorine",
             "Sodium Chlorine",

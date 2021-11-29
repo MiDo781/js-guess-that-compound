@@ -2,7 +2,7 @@ let covalent = [
     {
         compound: "Covalent",
         answer: "Covalent",
-        choices: [
+        options: [
             "Covalent",
             "Covalent",
             "Covalent",
@@ -19,7 +19,7 @@ let covalent = [
     {
         compound: "Covalent",
         answer: "Covalent",
-        choices: [
+        options: [
             "Sodium Covalent",
             "Sodium Covalent",
             "Sodium Covalent",
@@ -37,7 +37,7 @@ let covalent = [
     {
         compound: "Covalent",
         answer: "Covalent",
-        choices: [
+        options: [
             "Covalent Chloride",
             "Covalent and Chlorine",
             "Covalent Chlorine",

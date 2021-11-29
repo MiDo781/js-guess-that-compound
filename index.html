@@ -12,53 +12,43 @@
     <div class="phone">
         <!-- Main Menu -->
         <div class="screen screen--menu center">
-            <h1 class="screen__title">
-                Guess That Compound!
-            </h1>
-            <p class="screen__subtitle">
-                Can you guess all the compounds?
-            </p>
+            <h1 class="screen__title">Guess That Compound!</h1>
+            <p class="screen__subtitle">Can you guess all the compounds?</p>
             <div class="buttons buttons--menu center">
-                <button class="button button--yellow button--start">Start Now!</button>
+                <button 
+                    class="button button--yellow button--start"
+                    onclick="showScreen(selectScreen)">Start Now!</button>
                 <button class="button button--red button--learn">Learn</button>
             </div>
         </div>
 
         <!-- Select Your Compounds -->
         <div class="screen screen--select center">
-            <div class="button button--yellow button--back center">
-                <-
-            </div>
-            <h1 class="screen__title">
-                Select Your COMPOUNDS!
-            </h1>
+            <div 
+                class="button button--yellow button--back center"
+                onclick="hideScreen(selectScreen)"><-</div>
+            <h1 class="screen__title">Select Your COMPOUNDS!</h1>
             <div class="buttons buttons--select center">
-                <div class="button button--yellow button--choice button--ionic">
-                    <p class="button__title">
-                        Ionic Compounds
-                    </p>
-                    <p class="button__subtitle">
-                        Total Items: 100
-                    </p>
+                <div 
+                    class="button button--yellow button--choice button--ionic"
+                    data-quiz="ionic">
+                    <p class="button__title">Ionic Compounds</p>
+                    <p class="button__subtitle">Total Items: 100</p>
                 </div>
-                <div class="button button--yellow button--choice button--covalent">
-                    <p class="button__title button__title--covalent">
-                        Covalent Compounds
-                    </p>
-                    <p class="button__subtitle">
-                        Total Items: 100
-                    </p>
+                <div 
+                    class="button button--yellow button--choice button--covalent"
+                    data-quiz="covalent">
+                    <p class="button__title button__title--covalent">Covalent Compounds</p>
+                    <p class="button__subtitle">Total Items: 100</p>
                 </div>
             </div>
         </div>
 
         <!-- Quiz -->
         <div class="screen screen--quiz center">
-            <div class="button button--yellow button--back center">
-                <-
-            </div>
+            <div class="button button--yellow button--back center"><-</div>
             <p class="quiz__timer">15</p>
-            <h1 class="quiz__compound">NaCl</h1>
+            <h1 class="quiz__compound"></h1>
             <div class="buttons buttons__quiz">
                 <button class="button button--yellow button--option">Sodium Chloride</button>
                 <button class="button button--yellow button--option">Sodium Chloride</button>
@@ -69,7 +59,7 @@
 
         <!-- Popups -->
         <!-- Timeup -->
-        <div class="screen screen--popup screen--timeout center">
+        <div class="screen screen--popup screen--timeup center">
             <div class="popup popup--timeup">
                 <p class="popup__title">Bummer!</p>
                 <p class="popup__message">You ran out of time.</p>
@@ -95,5 +85,9 @@
             </div>
         </div>
     </div>
+
+    <script src="./scripts/ionic.js"></script>
+    <script src="./scripts/covalent.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
