@@ -36,7 +36,7 @@ let ionic = [
     },
     {
         compound: "NaCl",
-        answer: "Water",
+        answer: "Sodium Chloride",
         options: [
             "Sodium Chloride",
             "Sodium and Chlorine",

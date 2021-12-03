@@ -11,22 +11,18 @@
 <body>
     <div class="phone">
         <!-- Main Menu -->
-        <div class="screen screen--menu center">
+        <div class="screen screen--menu screen--visible center">
             <h1 class="screen__title">Guess That Compound!</h1>
             <p class="screen__subtitle">Can you guess all the compounds?</p>
             <div class="buttons buttons--menu center">
-                <button 
-                    class="button button--yellow button--start"
-                    onclick="showScreen(selectScreen)">Start Now!</button>
+                <button class="button button--yellow button--start">Start Now!</button>
                 <button class="button button--red button--learn">Learn</button>
             </div>
         </div>
 
         <!-- Select Your Compounds -->
-        <div class="screen screen--select center">
-            <div 
-                class="button button--yellow button--back center"
-                onclick="hideScreen(selectScreen)"><-</div>
+        <div class="screen screen--select screen--hidden center">
+            <div class="button button--yellow button--back center"><-</div>
             <h1 class="screen__title">Select Your COMPOUNDS!</h1>
             <div class="buttons buttons--select center">
                 <div 
@@ -45,7 +41,7 @@
         </div>
 
         <!-- Quiz -->
-        <div class="screen screen--quiz center">
+        <div class="screen screen--quiz screen--hidden center">
             <div class="button button--yellow button--back center"><-</div>
             <p class="quiz__timer">15</p>
             <h1 class="quiz__compound"></h1>
@@ -59,7 +55,7 @@
 
         <!-- Popups -->
         <!-- Timeup -->
-        <div class="screen screen--popup screen--timeup center">
+        <div class="screen screen--popup screen--timeup screen--hidden center">
             <div class="popup popup--timeup">
                 <p class="popup__title">Bummer!</p>
                 <p class="popup__message">You ran out of time.</p>
@@ -68,7 +64,7 @@
         </div>
 
         <!-- Correct -->
-        <div class="screen screen--popup screen--correct center">
+        <div class="screen screen--popup screen--correct screen--hidden center">
             <div class="popup popup--correct">
                 <p class="popup__title">Correct!</p>
                 <p class="popup__message">Compoud information here...</p>
@@ -77,7 +73,7 @@
         </div>
 
         <!-- Wrong -->
-        <div class="screen screen--popup screen--wrong center">
+        <div class="screen screen--popup screen--wrong screen--hidden center">
             <div class="popup popup--wrong">
                 <p class="popup__title">Wrong!</p>
                 <p class="popup__message">Better luck next time...</p>

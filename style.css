@@ -11,6 +11,7 @@
 /* Variables */
 :root {
     --text-color: rgba(17, 17, 17, 1);
+    --text-color-deffered: rgba(17, 17, 17, .7);
     --yellow-accent: rgba(252, 226, 5, 1);
     --red-accent: rgba(253, 67, 67, 1);
     --popup-bg: rgba(17, 17, 17, .25);
@@ -44,6 +45,7 @@
     border: 1px solid black;
     border-radius: 20px;
     background: #fff;
+    transition: all .2s ease-in-out;
 }
 
 .screen__title {
@@ -167,6 +169,11 @@
 
 .popup__next {
     font-weight: 500;
+    cursor: pointer;
+}
+
+.popup__next:active {
+    color: var(--text-color-deffered);
 }
 
 .popup--timeup,
@@ -179,20 +186,18 @@
 }
 
 /* Screens */
-.screen--select,
-.screen--quiz,
-.screen--popup {
+.screen--hidden {
     left: 60%;
     opacity: 0;
     z-index: -1;
-    transition: all .2s ease-in-out;
 }
 
-/* .screen--quiz {
-    left: 50%;
+.screen--visible {
     opacity: 1;
-    z-index: 2;
-} */
+    z-index: 1;
+    left: 50%;
+}
+
 
 
 

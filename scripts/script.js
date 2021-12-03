@@ -9,6 +9,7 @@ const correctScreen = document.querySelector(".screen--correct");
 const startButton = document.querySelector(".button--start");
 const learnButton = document.querySelector(".button--learn");
 const choiceButtons = document.getElementsByClassName("button--choice");
+const popupNextButtons = document.getElementsByClassName("popup__next");
 
 // For Quiz
 const optionButtons = document.getElementsByClassName("button--option");
@@ -16,25 +17,27 @@ const compoundView = document.querySelector(".quiz__compound");
 let number = 0;
 
 
-// Add event listeners to choice buttons
-for (let i = 0; i < choiceButtons.length; i++) {
-    switch (choiceButtons[i].attributes["data-quiz"].value) {
-        case "ionic":
-            choiceButtons[i].addEventListener("click", () => {
-                showScreen(quizScreen)
-                showNextQuiz(ionic);
-            })
-            break;
-        case "covalent":
-            choiceButtons[i].addEventListener("click", () => {
-                showScreen(quizScreen)
-                showNextQuiz(covalent);
-            })
-            break;
-    }
-}
+startButton.addEventListener("click", () => {
+    // Add event listeners to choice buttons
+    for (let i = 0; i < choiceButtons.length; i++) {
+        switch (choiceButtons[i].attributes["data-quiz"].value) {
+            case "ionic":
+                choiceButtons[i].setAttribute("onclick", "showQuestions(ionic)");
+                break;
+            case "covalent":
+                choiceButtons[i].setAttribute("onclick", "showQuestions(covalent)");
+                break;
+        }
+    }   
 
-function showNextQuiz(type) {
+    selectScreen.classList.add("screen--visible");
+});
+
+
+
+function showQuestions(type) {
+    number = randomQuiz(type);
+    showScreen(quizScreen)
     setCompound(type);
     createOptions(type);
 }
@@ -44,7 +47,6 @@ function setCompound(type) {
     let initialCompound = type[number].compound.split("");
     let subscripts = type[number].subscripts;
     let subscriptIndex = 0;
-
     /*
         -- Flow --
         1. For each character in initial compound
@@ -68,24 +70,30 @@ function setCompound(type) {
     compoundView.innerHTML = finalCompound;
 }
 
-function createOptions(type) {
+function createOptions (type) {
     for (let i = 0; i < type[number].options.length; i++) {
-        // Set inner HTML of each element to each opitons in the quiz
         optionButtons[i].innerHTML = type[number].options[i];
-
-        // Set and event listener for every button to check for the answer when clicked
-        optionButtons[i].addEventListener("click", () => {
-            checkAnswer(optionButtons[i], type);
-        })
     }
+}
+
+function shuffleOptions (options) {
+    return options.sort(() => Math.random() - 0.5);
 }
 
 function checkAnswer(option, type) {
     if (option.innerHTML == type[number].answer) {
         console.log(true);
+        showNextQuiz(type);
+        // showScreen(correctScreen);
     } else {
         console.log(false);
+        showNextQuiz(type);
+        // showScreen(wrongScreen);
     }
+}
+
+function randomQuiz(type) {
+    return Math.floor(Math.random() * type.length)
 }
 
 function showScreen(screen) {
