@@ -16,194 +16,104 @@ const optionButtons = document.getElementsByClassName("button--option");
 const compoundView = document.querySelector(".quiz__compound");
 let number = 0;
 
-
 startButton.addEventListener("click", () => {
-    // Add event listeners to choice buttons
-    for (let i = 0; i < choiceButtons.length; i++) {
-        switch (choiceButtons[i].attributes["data-quiz"].value) {
-            case "ionic":
-                choiceButtons[i].setAttribute("onclick", "showQuestions(ionic)");
-                break;
-            case "covalent":
-                choiceButtons[i].setAttribute("onclick", "showQuestions(covalent)");
-                break;
-        }
-    }   
+   selectScreen.classList.add("screen--visible"); // add opacity 1 to show "Select Your Compounds" here, and output categories which is Ionic and Covalent
 
-    selectScreen.classList.add("screen--visible");
+   // Add event listeners to choice buttons
+   for (let i = 0; i < choiceButtons.length; i++) {
+      switch (choiceButtons[i].attributes["data-quiz"].value) {
+         case "ionic":
+            choiceButtons[i].setAttribute("onclick", "showQuestions(ionic)");
+            break;
+         case "covalent":
+            choiceButtons[i].setAttribute("onclick", "showQuestions(covalent)");
+            break;
+      }
+   }
 });
 
+document.querySelector(".back--screenMenu").addEventListener("click", () => {
+   selectScreen.classList.remove("screen--visible");
+});
 
+document.querySelector(".back--screenCategory").addEventListener("click", () => {
+   document.querySelector(".screen--quiz").style.zIndex = 0;
+   document.querySelector(".screen--quiz").style.opacity = 0;
+   document.querySelector(".screen--quiz").style.left = "60%";
+});
 
 function showQuestions(type) {
-    number = randomQuiz(type);
-    showScreen(quizScreen)
-    setCompound(type);
-    createOptions(type);
+   number = randomQuiz(type);
+   showScreen(quizScreen)
+   setCompound(type);
+   createOptions(type);
 }
 
 function setCompound(type) {
-    let finalCompound = "";
-    let initialCompound = type[number].compound.split("");
-    let subscripts = type[number].subscripts;
-    let subscriptIndex = 0;
-    /*
-        -- Flow --
-        1. For each character in initial compound
-        2. Check if it includes a character from subscripts of index `subcriptIndex`
-        3. If true
-            3.1 Wrap thet current character's value with `<sub></sub>`
-            3.2 Add that current character to the variable `finalComound`
-            3.3 Increment subsciptIndex
-        4. If false
-            4.1 Add that current character to the variable `finalComound`
-    */
-    for (let i = 0; i < initialCompound.length; i++) {
-        if (initialCompound[i].includes(subscripts[subscriptIndex])) {
-            initialCompound[i] = "<sub>" + subscripts[subscriptIndex] + "</sub>";
-            finalCompound += initialCompound[i];
-            subscriptIndex += 1;    
-        } else {
-            finalCompound += initialCompound[i];
-        }
-    }
-    compoundView.innerHTML = finalCompound;
+   let finalCompound = "";
+   let initialCompound = type[number].compound.split("");
+   let subscripts = type[number].subscripts;
+   let subscriptIndex = 0;
+   /*
+       -- Flow --
+       1. For each character in initial compound
+       2. Check if it includes a character from subscripts of index `subcriptIndex`
+       3. If true
+           3.1 Wrap thet current character's value with `<sub></sub>`
+           3.2 Add that current character to the variable `finalComound`
+           3.3 Increment subsciptIndex
+       4. If false
+           4.1 Add that current character to the variable `finalComound`
+   */
+   for (let i = 0; i < initialCompound.length; i++) {
+      if (initialCompound[i].includes(subscripts[subscriptIndex])) {
+         initialCompound[i] = "<sub>" + subscripts[subscriptIndex] + "</sub>";
+         finalCompound += initialCompound[i];
+         subscriptIndex += 1;
+      } else {
+         finalCompound += initialCompound[i];
+      }
+   }
+   compoundView.innerHTML = finalCompound;
 }
 
-function createOptions (type) {
-    for (let i = 0; i < type[number].options.length; i++) {
-        optionButtons[i].innerHTML = type[number].options[i];
-    }
+function createOptions(type) {
+   for (let i = 0; i < type[number].options.length; i++) {
+      optionButtons[i].innerHTML = type[number].options[i];
+   }
 }
 
-function shuffleOptions (options) {
-    return options.sort(() => Math.random() - 0.5);
+function shuffleOptions(options) {
+   return options.sort(() => Math.random() - 0.5);
 }
 
 function checkAnswer(option, type) {
-    if (option.innerHTML == type[number].answer) {
-        console.log(true);
-        showNextQuiz(type);
-        // showScreen(correctScreen);
-    } else {
-        console.log(false);
-        showNextQuiz(type);
-        // showScreen(wrongScreen);
-    }
+   if (option.innerHTML == type[number].answer) {
+      console.log(true);
+      showNextQuiz(type);
+      // showScreen(correctScreen);
+   } else {
+      console.log(false);
+      showNextQuiz(type);
+      // showScreen(wrongScreen);
+   }
 }
 
 function randomQuiz(type) {
-    return Math.floor(Math.random() * type.length)
+   return Math.floor(Math.random() * type.length)
 }
 
-function showScreen(screen) {
-    screen.style.left = "50%";
-    screen.style.opacity = "1";
-    screen.style.zIndex = "1";
+function showScreen(screen) { // use this to go back at the categories
+   screen.style.left = "50%";
+   screen.style.opacity = "1";
+   screen.style.zIndex = "1";
 }
 
 function hideScreen(screen) {
-    screen.style.left = "60%";
-    screen.style.opacity = "0";
-    screen.style.zIndex = "-1";
+   screen.style.left = "60%";
+   screen.style.opacity = "0";
+   screen.style.zIndex = "-1";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
