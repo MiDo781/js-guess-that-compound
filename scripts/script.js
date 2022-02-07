@@ -1,9 +1,9 @@
-import {ionic, covalent} from './questions.js'
+import {ionic, covalent, learn} from './questions.js'
 
 // Screens
 const selectScreen = document.querySelector(".screen--select");
 const quizScreen = document.querySelector(".screen--quiz");
-const backScreen = document.querySelector('.back--screenMenu');
+const backScreen = document.getElementsByClassName('back--screenMenu');
 const backScreenCategory = document.querySelector('.back--screenCategory');
 const timeupScreen = document.querySelector(".screen--timeup");
 const wrongScreen = document.querySelector(".screen--wrong");
@@ -17,10 +17,15 @@ const covalentButton = document.querySelector('.button--covalent');
 const popupNextButtons = document.getElementsByClassName("popup__next");
 
 // For Quiz
+const timer = document.querySelector('.quiz__timer');
 const optionButtons = document.getElementsByClassName("button--option");
 const compoundView = document.querySelector(".quiz__compound");
 const compoundInfo = document.querySelector('.compound__information');
 let number = 0;
+
+// For Learn
+const learnScreen = document.querySelector('.screen--learn');
+const topics = document.querySelector('.topics');
 
 startButton.addEventListener("click", () => {
    selectScreen.classList.add("screen--visible");
@@ -38,8 +43,23 @@ startButton.addEventListener("click", () => {
    covalentButton.childNodes[3].textContent = `Total Items: ${covalent.length}`;
 });
 
-backScreen.addEventListener("click", () => {
-   selectScreen.classList.remove("screen--visible");
+learnButton.addEventListener('click', () => {
+   learnScreen.classList.add("screen--visible");
+
+   // Load learn Contents
+   topics.innerHTML = learn.map((info) => {
+      return ` <div class="topic">
+                  <h2 class="topic__title">${info.title}</h2>
+                  <p class="topic__content">${info.content}</p>
+               </div>`
+   }).join('');
+});
+
+Array.from(backScreen).forEach((btn) => {
+   btn.addEventListener("click", () => {
+      selectScreen.classList.remove("screen--visible");
+      learnScreen.classList.remove("screen--visible");
+   });
 });
 
 backScreenCategory.addEventListener("click", () => {
@@ -48,6 +68,7 @@ backScreenCategory.addEventListener("click", () => {
 
 const showQuestions = (element) => {
    //Generate Random Question and Options
+   let seconds = 3;
    let rand = Math.floor(Math.random() * element.length);
    let randomQuestion = element[rand].compound;
    let shuffleOptions = element[rand].options.sort(() => Math.random() - 0.5);
@@ -66,6 +87,13 @@ const showQuestions = (element) => {
    for (let option = 0; option < optionButtons.length; option++) {
       optionButtons[option].textContent = shuffleOptions[option];
    }
+   
+   function countdown () {
+      // timer.innerHTML = seconds--;
+      console.log(seconds);
+   }
+   const start = setInterval(countdown, 1000);
+   clearInterval(start, 3000);
 
    // Listen response for user answer
    Array.from(optionButtons).forEach((option) => {
@@ -78,6 +106,7 @@ const showQuestions = (element) => {
       });
    });
 };
+
 
 function checkAnswer(user, key, info) {
    if(user == key) {

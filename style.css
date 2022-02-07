@@ -15,10 +15,6 @@
    user-select: none;
 }
 
-a {
-   text-decoration: none;
-}
-
 /* Variables */
 :root {
    --text-color: rgba(17, 17, 17, 1);
@@ -26,6 +22,24 @@ a {
    --yellow-accent: rgba(252, 226, 5, 1);
    --red-accent: rgba(253, 67, 67, 1);
    --popup-bg: rgba(17, 17, 17, .25);
+}
+
+::-webkit-scrollbar {
+   width: 7px;
+}
+
+::-webkit-scrollbar-track {
+   background: #f1f1f1;
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+   background: #888;
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: #555;
 }
 
 /* Utilities */
@@ -37,9 +51,13 @@ a {
    text-align: center;
 }
 
+a {
+   text-decoration: none;
+}
+
 sub {
    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.5rem;
+   font-size: 2.5rem;
 }
 
 /* Main Style */
@@ -218,4 +236,50 @@ sub {
    opacity: 1;
    z-index: 2;
    left: 50%;
+}
+
+/* Learn */
+.topic-scroll {
+   height: 70%;
+   overflow-y: scroll;
+   margin: 0 5px;
+}
+
+.topics {
+   padding: 10px 10px;
+}
+
+.topics::-webkit-scrollbar {
+   display: none;
+}
+
+.topic {
+   width: 100%;
+   border: 1px solid black;
+   border-radius: 5px;
+   padding: 15px;
+   background-color: rgb(253, 67, 67);
+   box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+   color: #fff;
+   text-align: left;
+   margin-bottom: 10px;
+}
+
+.highlight--learn {
+   color: rgb(255, 96, 96);
+}
+
+.topic__content {
+   line-height: 1.2rem;
+}
+
+.topic__title, .topic__content {
+   color: #fff;
+}
+
+.screen-title--learn {
+   margin-top: 60px;
+   text-align: center;
+   padding: 10px;
+   line-height: 2.5rem;
 }

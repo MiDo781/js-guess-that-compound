@@ -221,5 +221,19 @@ const covalent = [
    },
 ]
 
-export {ionic, covalent}
+const learn = [
+   {
+      title: "Volcanoes",
+      content: "A volcano is a rupture in the crust of a planetary-mass object, such as Earth, that allows hot lava, volcanic ash, and gases to escape from a magma chamber below the surface.",
+   },
+   {
+      title: "Volcanoes",
+      content: "A volcano is a rupture in the crust of a planetary-mass object, such as Earth, that allows hot lava, volcanic ash, and gases to escape from a magma chamber below the surface.",
+   },
+   {
+      title: "Volcanoes",
+      content: "A volcano is a rupture in the crust of a planetary-mass object, such as Earth, that allows hot lava, volcanic ash, and gases to escape from a magma chamber below the surface.",
+   },
+]
 
+export {ionic, covalent, learn}
