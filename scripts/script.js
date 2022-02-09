@@ -1,4 +1,4 @@
-import {ionic, covalent, learn} from './questions.js'
+import { ionic, covalent, learn } from './questions.js'
 
 // Screens
 const selectScreen = document.querySelector(".screen--select");
@@ -38,7 +38,7 @@ startButton.addEventListener("click", () => {
       quizScreen.classList.add("screen--visible");
       showQuestions(covalent); // get the array from import
    });
-   // Array Length == Total Questions
+   // Array Length = Total Questions
    ionicButton.childNodes[3].textContent = `Total Items: ${ionic.length}`;
    covalentButton.childNodes[3].textContent = `Total Items: ${covalent.length}`;
 });
@@ -46,7 +46,7 @@ startButton.addEventListener("click", () => {
 learnButton.addEventListener('click', () => {
    learnScreen.classList.add("screen--visible");
 
-   // Load learn Contents
+   // Load 'Learn' Contents
    topics.innerHTML = learn.map((info) => {
       return ` <div class="topic">
                   <h2 class="topic__title">${info.title}</h2>
@@ -62,16 +62,13 @@ Array.from(backScreen).forEach((btn) => {
    });
 });
 
-backScreenCategory.addEventListener("click", () => {
-   quizScreen.classList.remove("screen--visible");
-});
-
 const showQuestions = (element) => {
    //Generate Random Question and Options
-   let seconds = 3;
+   let seconds = 15;
    let rand = Math.floor(Math.random() * element.length);
    let randomQuestion = element[rand].compound;
    let shuffleOptions = element[rand].options.sort(() => Math.random() - 0.5);
+   timer.innerHTML = seconds;
 
    // Insert <sub> tag per subscripts to be editable in css
    let subscripts = /[\u2070-\u209F\u00B2\u00B3\u00B9]/g;
@@ -81,19 +78,24 @@ const showQuestions = (element) => {
          modifiedRandomQuestion[char] = `<sub>${randomQuestion[char].match(subscripts)}</sub>`;
       }
    }
-   
+
    // Adding Question and Option to the document
    compoundView.innerHTML = modifiedRandomQuestion.join('');
    for (let option = 0; option < optionButtons.length; option++) {
       optionButtons[option].textContent = shuffleOptions[option];
    }
-   
-   function countdown () {
-      // timer.innerHTML = seconds--;
-      console.log(seconds);
-   }
-   const start = setInterval(countdown, 1000);
-   clearInterval(start, 3000);
+
+   // Countdown
+   const start = setInterval(() => {
+      timer.innerHTML = seconds--;
+
+      if (seconds < 0) {
+         clearInterval(start);
+         timeupScreen.classList.add('screen--visible');
+         correctScreen.classList.remove('screen--visible');
+         wrongScreen.classList.remove('screen--visible');
+      }
+   }, 1000);
 
    // Listen response for user answer
    Array.from(optionButtons).forEach((option) => {
@@ -102,17 +104,32 @@ const showQuestions = (element) => {
          let correctAnswer = element[rand].answer;
          let answerInfo = element[rand].info;
 
+         clearInterval(start);
          checkAnswer(userAnswer, correctAnswer, answerInfo)
+      });
+   });
+
+   // Back to screen Category
+   backScreenCategory.addEventListener("click", () => {
+      clearInterval(start);
+      quizScreen.classList.remove("screen--visible");
+   });
+
+   // Remove popup when clicking next
+   Array.from(popupNextButtons).forEach((btns) => {
+      btns.addEventListener('click', () => {
+         quizScreen.classList.remove("screen--visible");
+         correctScreen.classList.remove('screen--visible');
+         wrongScreen.classList.remove('screen--visible');
+         timeupScreen.classList.remove('screen--visible');
       });
    });
 };
 
-
 function checkAnswer(user, key, info) {
-   if(user == key) {
-      correctScreen.classList.add('screen--visible');
+   if (user === key) {
       compoundInfo.innerHTML = info;
-
+      correctScreen.classList.add('screen--visible');
       wrongScreen.classList.remove('screen--visible');
    }
 
@@ -120,12 +137,4 @@ function checkAnswer(user, key, info) {
       wrongScreen.classList.add('screen--visible');
       correctScreen.classList.remove('screen--visible');
    }
-
-   Array.from(popupNextButtons).forEach((btns) => {
-      btns.addEventListener('click', () => {
-         quizScreen.classList.remove("screen--visible");
-         correctScreen.classList.remove('screen--visible');
-         wrongScreen.classList.remove('screen--visible');
-      });
-   });
 }

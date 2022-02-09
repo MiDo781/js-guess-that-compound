@@ -1,18 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-* {
+*,
+::before,
+::after {
    margin: 0;
    padding: 0;
    font-family: 'Poppins', 'Inter', sans-serif;
    box-sizing: border-box;
-   color: #111;
-
-   /* Avoid highlighting when clicking buttons*/
-   -moz-user-select: none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   -ms-user-select: none;
-   user-select: none;
 }
 
 /* Variables */
@@ -42,6 +36,15 @@
    background: #555;
 }
 
+body {
+   /* Avoid highlighting when clicking buttons*/
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
 /* Utilities */
 .center {
    display: flex;
@@ -56,7 +59,6 @@ a {
 }
 
 sub {
-   font-family: Arial, Helvetica, sans-serif;
    font-size: 2.5rem;
 }
 
@@ -74,7 +76,7 @@ sub {
    left: 50%;
    transform: translate(-50%, -50%);
    width: 346px;
-   height: 90%;
+   height: 545px;
    border: 1px solid black;
    border-radius: 20px;
    background: #fff;
@@ -239,18 +241,18 @@ sub {
 }
 
 /* Learn */
+.topics::-webkit-scrollbar {
+   display: none;
+}
+
 .topic-scroll {
-   height: 70%;
+   height: 65%;
    overflow-y: scroll;
    margin: 0 5px;
 }
 
 .topics {
    padding: 10px 10px;
-}
-
-.topics::-webkit-scrollbar {
-   display: none;
 }
 
 .topic {

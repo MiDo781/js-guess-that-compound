@@ -227,12 +227,20 @@ const learn = [
       content: "A volcano is a rupture in the crust of a planetary-mass object, such as Earth, that allows hot lava, volcanic ash, and gases to escape from a magma chamber below the surface.",
    },
    {
-      title: "Volcanoes",
-      content: "A volcano is a rupture in the crust of a planetary-mass object, such as Earth, that allows hot lava, volcanic ash, and gases to escape from a magma chamber below the surface.",
+      title: "Plants",
+      content: "The term \"plant\" generally implies the possession of the following traits: multicellularity, possession of cell walls containing cellulose, and the ability to carry out photosynthesis with primary chloroplasts.",
    },
    {
-      title: "Volcanoes",
-      content: "A volcano is a rupture in the crust of a planetary-mass object, such as Earth, that allows hot lava, volcanic ash, and gases to escape from a magma chamber below the surface.",
+      title: "Minerals",
+      content: "Minerals are those elements on the earth and in foods that our bodies need to develop and function normally. Those essential for health include calcium, phosphorus, potassium, sodium, chloride, magnesium, iron, zinc, iodine, chromium, copper, fluoride, molybdenum, manganese, and selenium.",
+   },
+   {
+      title: "Nuclear Power",
+      content: "Nuclear power is the use of nuclear reactions to produce electricity. Nuclear power can be obtained from nuclear fission, nuclear decay and nuclear fusion reactions. Presently, the vast majority of electricity from nuclear power is produced by nuclear fission of uranium and plutonium in nuclear power plants. ",
+   },
+   {
+      title: "Antarctica",
+      content: "Antarctica, the southernmost continent and site of the South Pole, is a virtually uninhabited, ice-covered landmass. Most cruises to the continent visit the Antarctic Peninsula, which stretches toward South America.",
    },
 ]
 
